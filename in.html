@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Horizontal Slider</title>
+    <style>
+        /* Reset styles and set default font */
+        * {
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #080808;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .slider-container {
+            display: flex;
+            overflow-x: hidden;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease; /* Added transition property */
+        }
+
+        .column {
+            flex: 0 0 auto;
+            width: 25%;
+            padding: 10px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            text-align: center;
+            background-color: #f1f1f1;
+            max-height: 500px; /* Set your desired max height */
+        }
+
+        /* .card:hover {
+            transform: scale(1.1);
+        } */
+
+        .card p {
+            text-decoration: none;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: black;
+            font-weight: bold;
+            margin-top: 8px; /* Optional: Add some margin above the text */
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container" id="slider">
+        <div class="column">
+            <div class="card">
+                <img src="https://heritagebooks.com.np/wp-content/uploads/2023/03/E-GOVERNANCE.jpg" width="50%" height="auto" alt="">
+                <p>The Amresh Thakur</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="https://heritagebooks.com.np/wp-content/uploads/2023/03/E-GOVERNANCE.jpg" width="50%" height="auto" alt="">
+                <p>The Amresh Thakur</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="https://heritagebooks.com.np/wp-content/uploads/2023/03/E-GOVERNANCE.jpg" width="50%" height="auto" alt="">
+                <p>The Amresh Thakur</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="https://heritagebooks.com.np/wp-content/uploads/2023/03/E-GOVERNANCE.jpg" width="50%" height="auto" alt="">
+                <p>The Amresh Thakur</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="https://heritagebooks.com.np/wp-content/uploads/2023/03/E-GOVERNANCE.jpg" width="50%" height="auto" alt="">
+                <p>The Amresh Thakur</p>
+            </div>
+        </div>
+        <!-- Add more slider items as needed -->
+    </div>
+
+    <script>
+        // Automatic sliding
+        const slider = document.getElementById('slider');
+
+        function slide() {
+            const firstItem = slider.children[0];
+            slider.style.transition = 'transform 0.5s ease'; // Reset transition
+            slider.style.transform = 'translateX(-25%)'; // Move the slider to the left
+            setTimeout(() => {
+                slider.style.transition = 'none'; // Disable transition for instant jump
+                slider.appendChild(firstItem); // Move the first item to the end
+                slider.style.transform = 'translateX(0)'; // Reset the position
+            }, 500); // Set timeout to match the transition duration
+        }
+
+        setInterval(slide, 1000); // Change slide every 3 seconds (adjust as needed)
+    </script>
+
+</body>
+</html>
